@@ -166,7 +166,21 @@ describe('DoublyLinkedList Methods', () => {
             expect(headResult).to.equal('A');
         });
 
-        it("Should set the next and prev values on nodes appropriately on an insert", () => {
+        it("Should set the next and prev values on nodes appropriately on second insert ", () => {
+            list.addToTail('A');
+            list.addToTail('B');
+
+            const tail = list.tail;
+            const head = list.head;
+
+            expect(tail.prev.value).to.equal('A');
+            expect(head.next.value).to.equal('B');
+
+            expect(tail.next).to.equal(null);
+            expect(head.prev).to.equal(null);
+        });
+
+        it("Should set the next and prev values on nodes appropriately on an third or after insert", () => {
             list.addToTail('A');
             list.addToTail('B');
             list.addToTail('C');
